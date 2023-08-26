@@ -6,10 +6,10 @@ class AdminOrReadOnly(permissions.IsAdminUser):
             # Check permissions for read-only request
             return True
         else:
-            # Check permissions for write request
+            # Check permissions for put,delete,post request
             bool(request.user and request.user.is_staff)
 
-class ReviewOrReadOnly(permissions.IsAdminUser):
+class ReviewOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True

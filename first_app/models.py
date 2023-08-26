@@ -19,7 +19,7 @@ class ProductReview(models.Model):
     class Meta:
         unique_together = ('product','user') #One user can only comment one
     def __str__(self):
-        return f"{self.user.username} - {self.product.name} Rating: {self.rating}"
+        return f"{self.user.username} - {self.product.name} - Rating: {self.rating}"
         
     
     
